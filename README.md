@@ -1,3 +1,3 @@
 # text_mining_experiments
-Learning text mining.
-prueba git
+My first attempts at learning text mining.
+

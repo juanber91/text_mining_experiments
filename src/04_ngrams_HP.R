@@ -46,7 +46,7 @@ rowling_books() %>%
 
 # Analizamos los bigramas -----------
 
-# Calles más mencionadas
+# Profesores más mencionados
 bigrams_filtered %>%
   filter(word1 == "professor") %>%
   count(book, word2, sort = TRUE)
@@ -70,6 +70,12 @@ bigram_tf_idf %>%
   facet_wrap(~book, ncol = 3, scales = "free") +
   coord_flip()
 
+bigram_tf_idf %>% 
+  filter(tf_idf > 0.0015) %>% 
+  # filter(book == 'Harry Potter and the Deathly Hallows') %>% 
+  ggplot(aes(book, bigram, color = book)) +
+  geom_jitter(aes(size = tf_idf), height = 0, width = 0)
+  
 
 # Bigramas y sentiment analysis -------------
 
